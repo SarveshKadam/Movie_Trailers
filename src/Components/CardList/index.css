@@ -38,11 +38,11 @@
 
 @media only screen and (max-width: 500px) {
   .cards {
-    grid-column: 2 / span 6;
-    grid-template-columns: repeat(6, 1fr);
+    grid-column: 2 / span 4;
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
   }
   .card_item {
-    grid-column-end: span 6;
+    grid-column-end: span 4;
   }
 }

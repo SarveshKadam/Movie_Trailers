@@ -10,6 +10,11 @@ function CardList() {
     );
     const data = await response.json();
     setMoviesData(data.moviesData);
+    // console.log(data.moviesData);
+    // Object.entries(data.moviesData).map((item)=> {
+    //   console.log(item[1]);
+
+    // })
   };
 
   useEffect(() => fetchResponse(), []);
@@ -19,7 +24,13 @@ function CardList() {
         {moviesData &&
           Object.entries(moviesData).map((item) => (
             <li className="cards_item" key={item}>
-              <Card imageUrl={item.EventImageUrl} />
+              <Card
+                movieName={item[1].EventTitle}
+                imageUrl={item[1].EventImageUrl}
+                wtsPercent={item[1].wtsPerc}
+                votes={item[1].wtsCount}
+                releaseDate={item[1].ShowDate}
+              />
             </li>
           ))}
       </ul>
