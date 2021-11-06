@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "../Card/index";
 import "./index.css";
 
@@ -10,11 +11,6 @@ function CardList() {
     );
     const data = await response.json();
     setMoviesData(data.moviesData);
-    // console.log(data.moviesData);
-    // Object.entries(data.moviesData).map((item)=> {
-    //   console.log(item[1]);
-
-    // })
   };
 
   useEffect(() => fetchResponse(), []);
@@ -24,13 +20,15 @@ function CardList() {
         {moviesData &&
           Object.entries(moviesData).map((item) => (
             <li className="cards_item" key={item}>
-              <Card
-                movieName={item[1].EventTitle}
-                imageUrl={item[1].EventImageUrl}
-                wtsPercent={item[1].wtsPerc}
-                votes={item[1].wtsCount}
-                releaseDate={item[1].ShowDate}
-              />
+              <Link to={`/movie?movieId=${item[1].EventCode}`}>
+                <Card
+                  movieName={item[1].EventTitle}
+                  imageUrl={item[1].EventImageUrl}
+                  wtsPercent={item[1].wtsPerc}
+                  votes={item[1].wtsCount}
+                  releaseDate={item[1].ShowDate}
+                />
+              </Link>
             </li>
           ))}
       </ul>

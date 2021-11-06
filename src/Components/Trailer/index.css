@@ -1,0 +1,62 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+  height: 20vh;
+}
+
+.box-container {
+  display: block;
+}
+
+.one {
+  flex-basis: 60%;
+}
+
+.two {
+  flex-basis: 40%;
+  height: 200%;
+}
+
+.to-left {
+  float: left;
+  padding: 5px;
+}
+
+.genre {
+  border-radius: 25px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  margin-right: 4px;
+}
+.iconText {
+  font-size: 15px;
+  color: white;
+}
+@media (max-width: 800px) {
+  .one,
+  .two {
+    flex-basis: 100%;
+  }
+
+  .one {
+    margin-bottom: 40%;
+  }
+}
+
+.icon-row {
+  padding: 10px;
+  flex: 30%;
+  text-align: center;
+  margin-left: 15px;
+}
+
+.icon-col {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  display: inline-block;
+}

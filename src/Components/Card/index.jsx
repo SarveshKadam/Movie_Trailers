@@ -3,7 +3,6 @@ import { AiFillLike, AiOutlinePlayCircle } from "react-icons/ai";
 import "./index.css";
 function index(props) {
   const { imageUrl, movieName, wtsPercent, votes, releaseDate } = props;
-  console.log(imageUrl);
   function defaultSrc(e) {
     e.target.src = require("../../../public/images/dummy_img.png");
   }

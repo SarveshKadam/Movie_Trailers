@@ -1,14 +1,13 @@
-import Navbar from "./Components/Header/index";
-import List from "./Components/CardList/index";
+import React from "react";
+import Main from "./Components/Main";
 import "./styles.css";
 
-export default function App() {
+const App = () => {
   return (
     <div className="App">
-      {/* <Navbar /> */}
-      <div>
-        <List />
-      </div>
+      <Main />
     </div>
   );
-}
+};
+
+export default App;
