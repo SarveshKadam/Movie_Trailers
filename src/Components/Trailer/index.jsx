@@ -32,11 +32,11 @@ function Trailer(props) {
       <div className="box">
         <div className="one">
           <iframe
-            frameborder="0"
+            frameBorder="0"
             allow="autoplay; encrypted-media"
-            allowfullscreen
-            title="video"
-            srcdoc={srcdoc}
+            allowFullScreen
+            title={movieName}
+            srcDoc={srcdoc}
             className="iframe-style"
           ></iframe>
         </div>

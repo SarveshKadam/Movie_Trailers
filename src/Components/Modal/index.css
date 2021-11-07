@@ -25,6 +25,14 @@
   .close-modal {
     margin-bottom: 5px;
   }
+
+  .modal {
+    top: 25px;
+  }
+
+  .modal-main {
+    top: 60%;
+  }
 }
 .display-block {
   display: block;

@@ -1,51 +1,76 @@
-import React, { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import DropDown from "../CustomElements/DropDown/index";
+import { FaBars, FaTimes } from "react-icons/fa";
+import content from "../../Content/genre.json";
 import "./index.css";
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
+function Navbar({ languageList, getSelectedLang, getSelectedGenre }) {
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
+  const { allGenres } = content;
+  const handleClick = () => setClick((prev) => !prev);
 
-  const handleClick = () => {
-    setOpen(!open);
+  const closeMobileMenu = () => setClick(false);
+
+  function fetchSelectedLang(data) {
+    getSelectedLang && getSelectedLang(data);
+  }
+
+  function fetchSelectedGenre(data) {
+    getSelectedGenre && getSelectedGenre(data);
+  }
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
   };
 
-  const closeMenu = () => {
-    setOpen(false);
-  };
+  useEffect(() => {
+    showButton();
+  }, []);
+
+  window.addEventListener("resize", showButton);
 
   return (
-    <nav className="navbar">
-      <Link to="/" className="nav-logo">
-        Logo
-      </Link>
-      <div onClick={handleClick} className="nav-icon">
-        {open ? <FiX /> : <FiMenu />}
+    <>
+      <div className="navbar">
+        <div className="navbar-container nav-container">
+          <a href="/" className="navbar-logo" onClick={closeMobileMenu}>
+            Movie Trailers
+          </a>
+          <div className="menu-icon" onClick={handleClick}>
+            {click ? <FaTimes /> : <FaBars />}
+          </div>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              {/* <a href="/" className="nav-links" onClick={closeMobileMenu}>
+                Home
+              </a> */}
+              <div className="nav-links">
+                <DropDown
+                  defaultTitle="All Languages"
+                  dropDownMenu={languageList}
+                  fetchSelectedLang={fetchSelectedLang}
+                />
+              </div>
+            </li>
+            <li className="nav-item">
+              <div className="nav-links">
+                <DropDown
+                  defaultTitle="All Genre"
+                  dropDownMenu={allGenres}
+                  fetchSelectedGenre={fetchSelectedGenre}
+                />
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <ul className={open ? "nav-links active" : "nav-links"}>
-        <li className="nav-item">
-          <Link to="/" className="nav-link" onClick={closeMenu}>
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/about" className="nav-link" onClick={closeMenu}>
-            About
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/shop" className="nav-link" onClick={closeMenu}>
-            Shop
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/contact" className="nav-link" onClick={closeMenu}>
-            Contact
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    </>
   );
-};
+}
 
 export default Navbar;

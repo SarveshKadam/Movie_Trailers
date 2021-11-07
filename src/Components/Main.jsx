@@ -1,18 +1,34 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import CardList from "./CardList/index";
-
-// The Main component renders one of the three provided
-// Routes (provided that one matches). Both the /roster
-// and /schedule routes will match any pathname that starts
-// with /roster or /schedule. The / route will only match
-// when the pathname is exactly the string "/"
-const Main = () => (
-  <main>
-    <Switch>
-      <Route exact path="/" component={CardList} />
-    </Switch>
-  </main>
-);
+import Header from "./Header/index";
+const Main = () => {
+  const [languageList, setLangualist] = useState([]);
+  const [selectLang, setSelectLang] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState([]);
+  const fetchResponse = async () => {
+    const response = await fetch(
+      "https://peaceful-forest-62260.herokuapp.com/"
+    );
+    const data = await response.json();
+    setLangualist(data.languageList);
+  };
+  function getSelectedLang(data) {
+    setSelectLang(data);
+  }
+  function getSelectedGenre(data) {
+    setSelectedGenre(data);
+  }
+  useEffect(() => fetchResponse(), []);
+  return (
+    <main>
+      <Header
+        languageList={languageList}
+        getSelectedLang={getSelectedLang}
+        getSelectedGenre={getSelectedGenre}
+      />
+      <CardList selectLang={selectLang} selectedGenre={selectedGenre} />
+    </main>
+  );
+};
 
 export default Main;
