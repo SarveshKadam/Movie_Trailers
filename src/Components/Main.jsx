@@ -5,12 +5,18 @@ const Main = () => {
   const [languageList, setLangualist] = useState([]);
   const [selectLang, setSelectLang] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
+
+  //Fetch API Response
   const fetchResponse = async () => {
-    const response = await fetch(
-      "https://peaceful-forest-62260.herokuapp.com/"
-    );
-    const data = await response.json();
-    setLangualist(data.languageList);
+    try {
+      const response = await fetch(
+        "https://peaceful-forest-62260.herokuapp.com/"
+      );
+      const data = await response.json();
+      setLangualist(data.languageList);
+    } catch (error) {
+      alert(error);
+    }
   };
   function getSelectedLang(data) {
     setSelectLang(data);

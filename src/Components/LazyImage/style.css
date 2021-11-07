@@ -1,0 +1,23 @@
+img {
+  width: auto;
+  height: 80%;
+  overflow: hidden;
+  filter: grayscale(60%);
+  /* Add a smooth animation on loading */
+  @keyframes loaded {
+    0% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.loaded:not(.has-error) {
+  animation: loaded 300ms ease-in-out;
+}
+
+.has-error {
+  content: url(${placeHolder});
+}

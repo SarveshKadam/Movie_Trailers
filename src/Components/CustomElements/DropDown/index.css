@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius&family=Shadows+Into+Light&display=swap");
+
 .up-arrow:after {
   display: inline-block;
   content: " ";
@@ -29,6 +31,7 @@
   font-weight: bold;
   cursor: pointer;
   color: #00fa9a;
+  font-family: "Delius", cursive;
 }
 .block {
   display: block;
@@ -43,6 +46,7 @@
 .input-border {
   border: 1px solid gray;
   position: fixed;
-  padding: 1.5px;
-  background-color: black;
+  padding: 2.5px;
+  background-color: #2d2d2e;
+  font-family: "Delius", cursive;
 }

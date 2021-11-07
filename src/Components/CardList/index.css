@@ -1,8 +1,11 @@
 .cards {
-  grid-column: 2 / span 12;
+  grid-column: 2 / span 10;
   display: grid;
-  grid-template-columns: repeat(12, minmax(auto, 80px));
-  grid-gap: 40px;
+  grid-template-columns: repeat(10, minmax(auto, 110px));
+  /* 80px */
+  grid-gap: 20px;
+  overflow-x: hidden;
+  /* not there */
 }
 
 .cards_item {

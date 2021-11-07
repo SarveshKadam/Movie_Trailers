@@ -1,3 +1,6 @@
+//This Helper function is to fetch thumbnail of
+// the trailer video URL
+
 function getThumbNail(url) {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url?.match(regExp);

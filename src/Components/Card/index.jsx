@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Modal from "../Modal/index";
 import Trailer from "../Trailer/index";
+import LazyImage from "../LazyImage/index";
 import { AiFillLike, AiOutlinePlayCircle } from "react-icons/ai";
 import "./index.css";
-function index(props) {
+function Card(props) {
   const [showModal, setShowModal] = useState(false);
   const {
     imageUrl,
@@ -18,22 +19,15 @@ function index(props) {
     wontWatch,
     mayBeWatch
   } = props;
-  function defaultSrc(e) {
-    e.target.src = require("../../../public/images/dummy_img.png");
-  }
-  function hanldeTrailer(data) {
-    console.log("Which Movie", data);
+
+  //open the modal
+  function hanldeTrailer() {
     setShowModal(true);
   }
   return (
     <div>
-      <div className="card" onClick={() => hanldeTrailer(movieName)}>
-        <img
-          src={imageUrl}
-          alt={movieName}
-          style={{ width: "100%" }}
-          onError={defaultSrc}
-        />
+      <div className="card" onClick={() => hanldeTrailer()}>
+        <LazyImage src={imageUrl} alt={movieName} />
         <div className="release-date">
           <p className="white-text">{releaseDate.toString().split(",")[0]}</p>
         </div>
@@ -71,4 +65,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default Card;
