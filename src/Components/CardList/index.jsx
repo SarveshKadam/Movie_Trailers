@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import Card from "../Card/index";
+
 import "./index.css";
 
 function CardList() {
@@ -20,15 +20,21 @@ function CardList() {
         {moviesData &&
           Object.entries(moviesData).map((item) => (
             <li className="cards_item" key={item}>
-              <Link to={`/movie?movieId=${item[1].EventCode}`}>
+              <div>
                 <Card
                   movieName={item[1].EventTitle}
                   imageUrl={item[1].EventImageUrl}
                   wtsPercent={item[1].wtsPerc}
-                  votes={item[1].wtsCount}
+                  votes={item[1].csCount}
                   releaseDate={item[1].ShowDate}
+                  trailerUrl={item[1].TrailerURL}
+                  willWatch={item[1].wtsCount}
+                  wontWatch={item[1].dwtsCount}
+                  mayBeWatch={item[1].maybeCount}
+                  genre={item[1].EventGenre}
+                  language={item[1].EventLanguage}
                 />
-              </Link>
+              </div>
             </li>
           ))}
       </ul>

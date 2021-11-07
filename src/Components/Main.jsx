@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import CardList from "./CardList/index";
-import Trailer from "./Trailer/index";
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -12,7 +11,6 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={CardList} />
-      <Route path="/movie" component={Trailer} />
     </Switch>
   </main>
 );

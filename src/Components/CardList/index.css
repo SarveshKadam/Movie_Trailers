@@ -32,7 +32,7 @@
     grid-gap: 20px;
   }
   .card_item {
-    grid-column-end: span 12;
+    grid-column-end: span 6;
   }
 }
 
