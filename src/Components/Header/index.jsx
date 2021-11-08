@@ -46,9 +46,6 @@ function Navbar({ languageList, getSelectedLang, getSelectedGenre }) {
           </div>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              {/* <a href="/" className="nav-links" onClick={closeMobileMenu}>
-                Home
-              </a> */}
               <div className="nav-links">
                 <DropDown
                   defaultTitle="All Languages"

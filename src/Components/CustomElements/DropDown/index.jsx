@@ -68,14 +68,4 @@ const SearchBar = (props) => {
   );
 };
 
-// const App = () => {
-//   return (
-//     <div className="w-full h-screen flex justify-center items-center">
-//       <div className="w-1/2 h-16  text-black-100 flex items-center justify-center text-xl">
-//         <SearchBar />
-//       </div>
-//     </div>
-//   );
-// };
-
 export default SearchBar;

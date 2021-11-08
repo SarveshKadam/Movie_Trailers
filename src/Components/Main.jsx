@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CardList from "./CardList/index";
 import Header from "./Header/index";
+import AppliedFilter from "./AppliedFilter/index";
 const Main = () => {
   const [languageList, setLangualist] = useState([]);
   const [selectLang, setSelectLang] = useState([]);
@@ -32,6 +33,12 @@ const Main = () => {
         getSelectedLang={getSelectedLang}
         getSelectedGenre={getSelectedGenre}
       />
+      {(selectLang.length > 0 || selectedGenre.length > 0) && (
+        <AppliedFilter
+          getSelectedLang={selectLang}
+          getSelectedGenre={selectedGenre}
+        />
+      )}
       <CardList selectLang={selectLang} selectedGenre={selectedGenre} />
     </main>
   );
