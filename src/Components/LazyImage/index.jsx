@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import dummy_img from "../../../public/images/dummy_img.png";
+import dummy_img from "../../images/dummy_img.png";
 
 const placeHolder = dummy_img;
 const LazyImage = ({ src, alt }) => {
