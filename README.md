@@ -21,6 +21,7 @@ You can view the [Live App](https://bookmyshow-movietrailers.netlify.app/).
 │   └── index.html
 ├── src
 │   └── Components
+│   |     └── AppliedFilter
 │   |     └── Card
 │   |     └── CardList
 │   |     └── CustomElements
