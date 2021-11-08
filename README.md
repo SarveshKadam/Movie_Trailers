@@ -6,12 +6,10 @@ You can view the [Live App](https://bookmyshow-movietrailers.netlify.app/).
 
 ## Features ⭐
 
-
 ⚡️ Includes Reusable Components\
 ⚡️ Includes Lazy Loading of Images\
 ⚡️ Filtering Feature by Genres and Languages\
 ⚡️ Responsive Modern UI Design
-
 
 ## Folder Structure :file_folder:
 
@@ -39,13 +37,15 @@ You can view the [Live App](https://bookmyshow-movietrailers.netlify.app/).
 │   └── App.js
 │   └── index.js
 ```
+
 The file `index.js` which executes when our client side application is ran
 We have a `components` folder for our different components.<br />
-
 
 ## Design :triangular_ruler:
 
 On the react side, we have created different components such as Card for designing each Movie Card, CardList for listing of Movies, Custom Elements for elements such as DropDown, Header component for Navigation Bar, Pop ups are achieved using Modal component and Trailer Component for displaying each Movie Details with Trailer.
+Also have created helper functions to fetch the embed youtube URL and Thumbnail of the Trailer video.Lazy Load component for lazy loading of Images.
+
 In the react we have used `React Hooks` such as `useState`, `useEffect`.
 
 ## Technologies used 🛠️
